@@ -1,0 +1,12 @@
+<resources>
+    <string name="app_name">GeoQuiz</string>
+    <string name="question_text">Canberra is the capital of Australia.</string>
+    <string name="question_text_2">Mount Everest is the capital of Nepal.</string>
+    <string name="question_text_3">The Amazon River is the longest river in the world.</string>
+
+    <string name="true_button">True</string>
+    <string name="false_button">False</string>
+    <string name="correct_toast">Correct!</string>
+    <string name="incorrect_toast">Incorrect!</string>
+
+</resources>
