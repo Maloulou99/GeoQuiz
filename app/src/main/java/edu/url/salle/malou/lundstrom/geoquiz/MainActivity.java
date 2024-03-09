@@ -3,14 +3,19 @@ package edu.url.salle.malou.lundstrom.geoquiz;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.Button;
 import android.widget.TextView;
 import android.widget.Toast;
+
+import edu.url.salle.malou.lundstrom.geoquiz.model.Question;
 
 public class MainActivity extends AppCompatActivity {
 
     private Button mTrueButton;
     private Button mFalseButton;
+    private Button mNextButton;
+    private Button mBackButton;
     private TextView mQuestionTextView;
     private int mCurrentIndex = 0;
 
@@ -33,12 +38,19 @@ public class MainActivity extends AppCompatActivity {
 
         mFalseButton = findViewById(R.id.falseButton);
         mFalseButton.setOnClickListener(v -> checkAnswer(false));
+
+        mNextButton = findViewById(R.id.nextButton);
+        mNextButton.setOnClickListener(v -> nextQ());
+
+        mNextButton = findViewById(R.id.backButton);
+        mNextButton.setOnClickListener(v -> backQ());
     }
 
     private void updateQuestion() {
         int questionTextResId = mQuestionBank[mCurrentIndex].getTextId();
         mQuestionTextView.setText(questionTextResId);
     }
+
 
     private void checkAnswer(boolean userAnswer) {
         boolean correctAnswer = mQuestionBank[mCurrentIndex].isAnswerTrue();
@@ -54,6 +66,15 @@ public class MainActivity extends AppCompatActivity {
 
         // Move to the next question
         mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+        updateQuestion();
+    }
+
+    private void nextQ(){
+        mCurrentIndex = (mCurrentIndex + 1) % mQuestionBank.length;
+        updateQuestion();
+    }
+    private void backQ(){
+        mCurrentIndex = (mCurrentIndex - 1 + mQuestionBank.length) % mQuestionBank.length;
         updateQuestion();
     }
 

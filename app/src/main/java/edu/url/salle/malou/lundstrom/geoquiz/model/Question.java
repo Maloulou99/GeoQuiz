@@ -1,4 +1,4 @@
-package edu.url.salle.malou.lundstrom.geoquiz;
+package edu.url.salle.malou.lundstrom.geoquiz.model;
 
 public class Question {
     private int textId;
